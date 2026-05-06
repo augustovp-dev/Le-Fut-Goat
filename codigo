@@ -1,0 +1,166 @@
+// LE' FUT GOAT — PROJETO COMPLETO (SEM FÓRUM)
+// Node + Express + MySQL + MVC + Login + Dashboard
+
+// ================= ESTRUTURA =================
+LE-FUT-GOAT/
+│── app.js
+│── database.sql
+│── package.json
+│── /src
+│   ├── /config
+│   │     └── database.js
+│   ├── /controllers
+│   │     ├── userController.js
+│   │     └── playerController.js
+│   ├── /models
+│   │     ├── userModel.js
+│   │     └── playerModel.js
+│   ├── /routes
+│   │     ├── userRoutes.js
+│   │     └── playerRoutes.js
+│   ├── /middlewares
+│   │     └── auth.js
+│   └── /public
+│         ├── index.html
+│         ├── login.html
+│         ├── cadastro.html
+│         ├── dashboard.html
+│         ├── historia.html
+│         ├── /css/styles.css
+│         ├── /js/script.js
+│         └── /assets/img/
+
+// ================= DATABASE =================
+CREATE DATABASE lefutgoat;
+USE lefutgoat;
+
+CREATE TABLE users (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ email VARCHAR(100),
+ password VARCHAR(100)
+);
+
+CREATE TABLE players (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ name VARCHAR(100),
+ goals INT
+);
+
+// ================= APP =================
+const express = require('express');
+const session = require('express-session');
+const path = require('path');
+
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(session({
+ secret: 'goat',
+ resave: false,
+ saveUninitialized: false
+}));
+
+app.use(express.static(path.join(__dirname, 'src/public')));
+
+app.use('/user', require('./src/routes/userRoutes'));
+app.use('/players', require('./src/routes/playerRoutes'));
+
+app.listen(3000, () => console.log('http://localhost:3000'));
+
+// ================= AUTH =================
+function auth(req, res, next) {
+ if (req.session.user) next();
+ else res.status(401).send('Não autorizado');
+}
+module.exports = auth;
+
+// ================= USER =================
+const db = require('../config/database');
+
+exports.login = (req, res) => {
+ const { email, password } = req.body;
+ db.query('SELECT * FROM users WHERE email=? AND password=?',
+ [email, password],
+ (err, result) => {
+  if (result.length > 0) {
+   req.session.user = result[0];
+   res.send(true);
+  } else res.send(false);
+ });
+};
+
+exports.register = (req, res) => {
+ const { email, password } = req.body;
+ db.query('INSERT INTO users (email,password) VALUES (?,?)',
+ [email, password], () => res.send(true));
+};
+
+// ================= PLAYERS =================
+exports.listPlayers = (req, res) => {
+ db.query('SELECT * FROM players', (e, r) => res.json(r));
+};
+
+// ================= FRONT =================
+
+<!-- login.html -->
+<input id="email">
+<input id="password" type="password">
+<button onclick="login()">Login</button>
+
+<script>
+function login(){
+ fetch('/user/login',{method:'POST',headers:{'Content-Type':'application/json'},
+ body:JSON.stringify({email:email.value,password:password.value})})
+ .then(r=>r.json()).then(ok=>{if(ok) location='dashboard.html'});
+}
+</script>
+
+<!-- cadastro.html -->
+<input id="email">
+<input id="password">
+<button onclick="cad()">Cadastrar</button>
+
+<script>
+function cad(){
+ fetch('/user/register',{method:'POST',headers:{'Content-Type':'application/json'},
+ body:JSON.stringify({email:email.value,password:password.value})});
+}
+</script>
+
+<!-- dashboard.html -->
+<h1>Dashboard</h1>
+<div id="players"></div>
+
+<script>
+fetch('/players').then(r=>r.json()).then(d=>{
+ d.forEach(p=>players.innerHTML+=`<p>${p.name} - ${p.goals}</p>`);
+});
+</script>
+
+<!-- historia.html -->
+<h1>História do Futebol</h1>
+<p>Conteúdo informativo aqui...</p>
+
+<!-- index.html -->
+<h1>LE' FUT GOAT</h1>
+<a href="login.html">Login</a>
+<a href="dashboard.html">Dashboard</a>
+
+// ================= CSS =================
+body{font-family:Arial;margin:0}
+h1{text-align:center}
+
+// ================= PACKAGE =================
+{
+ "name":"lefutgoat",
+ "version":"1.0.0",
+ "main":"app.js",
+ "scripts":{"start":"node app.js"},
+ "dependencies":{
+  "express":"^4.18.2",
+  "express-session":"^1.17.3",
+  "mysql2":"^3.6.0"
+ }
+}

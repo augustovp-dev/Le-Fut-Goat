@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Minha História</title>
+<link rel="icon" href="assets/favicon2.jpg">
+<link rel="stylesheet" href="cssHeader.css">
+
+<style>
+body {
+    margin: 0; /* Remove margens padrão */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #000000, #000000); /* Fundo com gradiente */
+
+    display: flex;
+    flex-direction: column; /* Organiza em coluna */
+    min-height: 100vh; /* Altura mínima da tela */
+} 
+
+
+.main {
+    display: flex; /* Layout em linha */
+    justify-content: center; /* Centraliza conteúdo */
+    align-items: flex-start; /* Alinha no topo */
+    gap: 30px;  /* Espaço entre colunas */
+    margin: 40px; /* Espaço externo */
+    padding: 40px;
+        flex: 1; /* Ocupa espaço restante */
+
+}
+
+
+.left {
+    width: 60%; /* Largura da coluna principal */
+}
+
+.right {
+    width: 25%; /* Largura da lateral */
+    display: flex; 
+    flex-direction: column;
+    gap: 20px; /* Espaço entre cards */
+    position: sticky; /* Fica fixo ao rolar */
+    top: 20px; /* faz a lateral acompanhar o scroll */
+}
+
+
+.card {
+    background: rgba(255, 255, 255, 0.95); /* Fundo branco com transparência */
+    padding: 25px;
+    border-radius: 16px; /* Bordas arredondadas */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Sombra */
+    line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+
+.galeria {
+    display: grid; /* Layout em grade */
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 10px; /* Espaço entre imagens */
+}
+
+.galeria img {
+    width: 100%;  /* Ocupa toda largura */
+    border-radius: 10px; /* Bordas arredondadas */
+    transition: 0.3s; /* Animação suave */
+}
+
+.galeria img:hover {
+    transform: scale(1.05); /* Aumenta imagem ao passar mouse */
+}
+
+
+.highlight {
+    background: #EB0D3F;
+    color: white;
+    padding: 15px;
+    border-left: 5px solid #EB0D3F; /* Destaque lateral */
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.desafios {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0;
+}
+
+.desafios li {
+    background: #f1f1f1; 
+    margin: 8px 0; /* Espaço entre itens */
+    padding: 10px;
+    border-radius: 6px;
+}
+footer {
+    background-color: #EB0D3F;
+    color: white;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+
+.final {
+    text-align: center; /* Centraliza texto */
+    color: black;
+    margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+    .main {
+        flex-direction: column; /* Muda layout para coluna em telas pequenas */
+    }
+
+    .left, .right {
+        width: 100%; /* Ocupa toda largura */
+    }
+
+    .right {
+        position: static; /* Remove fixação lateral */
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Le' Fut Goat</h1>
+   <nav id="navLinks">
+    <a href="minhaHistória.html">Minha<br>Historia<br>no Futebol</a>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+</nav>
+</header>
+
+<div class="main">
+
+    <div class="left">
+        <div class="card">
+
+            <h2>⚽ O Começo de Tudo</h2>
+            <p>Minhas primeiras memórias com o futebol vêm de antes mesmo de eu entender o mundo direito, lá por 2009/2010. Eu já era aquela criança inquieta, que escalava tudo dizendo que era o Homem-Aranha, mas sempre tinha uma bola por perto.
+Cresci jogando principalmente com meu primo Nicolas, que considero como um irmão. A gente jogava em qualquer lugar possível: garagem, laje, casa dos meus tios… porque na rua era difícil, meus pais não deixavam. Mesmo assim, eu sempre dava um jeito.
+O futebol entrou na minha vida muito cedo, muito por influência do meu tio Jonas e do próprio Nicolas. E junto com isso veio a paixão pelo São Paulo e por jogadores que moldaram minha forma de ver o jogo: Rogério Ceni, Neymar e Lewandowski.
+Na escola, eu ia bem, tirava notas altas e até ajudava outros alunos. Mas, sendo direto, nada disso me empolgava mais do que jogar bola.</p>
+
+            <h2>Evolução</h2>
+            <p>Com o tempo, fui melhorando dentro do jogo, mesmo sem estrutura ideal. Eu não treinava em clube, não jogava federado, mas compensava isso jogando sempre que podia.
+Participei de vários interclasses, e já ali comecei a mostrar algo diferente: não era só jogar, eu pensava o jogo. Cheguei a ser treinador do time feminino no 6º ano e elas foram campeãs, um sinal claro de leitura tática desde cedo que eu viria explorar posteriormente.
+Mesmo assim, existia um conflito constante: meu pai nunca apoiou a ideia de seguir no futebol. Isso criou uma barreira real, não só prática, mas mental.
+</p></p>
+
+            <h2>🚫 Interrupções e Frustrações</h2>
+            <p>Quando uma oportunidade maior parecia surgir (como uma peneira do Palmeiras) veio a pandemia. E isso praticamente congelou qualquer avanço que eu poderia ter naquele momento.
+Esse tipo de ruptura não é detalhe: é o tipo de coisa que muda trajetória. Enquanto outros evoluíam em base, eu estava parado em casa.
+Mesmo assim, quando tudo voltou em 2022, eu retomei com intensidade. Começei a treinar no Guáras que era um dos times do bairro, fui chamado para jogar competições, conheci o Morumbi, participei da Copa Jovem Pan e tive contato com jogadores e criadores conhecidos.
+Ali ficou claro: eu talvez não tivesse o caminho tradicional, mas ainda conseguia competir.</p>
+
+            <h2>🧠 Identidade em Campo</h2>
+            <p>Um ponto que se repete na minha trajetória é a versatilidade. Eu nunca foi preso a uma posição só.
+Joguei como atacante/pivô,
+atuei como fixo, zagueiro, volante e até cheguei a fazer as 2 laterais,
+vireu goleiro em momentos decisivos,
+e muitas vezes fui o “coringa” do time.
+Isso tem dois lados:
+Positivo → leitura de jogo, adaptação, inteligência tática
+Negativo → dificuldade de se consolidar em uma posição específica
+Mas teve um momento que defini bem minha identidade, por não conseguei competir em habilidade com o pessoal na linha eu virei goleiro no interclasse de 2023.
+Ali, não foi só improviso foi desempenho de alto impacto. Defesas decisivas, liderança e reconhecimento claro (inclusive da torcida) que fez até música para mim. Foi provavelmente o ponto onde  mais me destacou individualmente e fui reconhecido.</p>
+
+            <h2>🔥 Auge e Queda</h2>
+            <p>
+
+A final de 2023 resume bem minha trajetória:
+alto nível de atuação,
+participação direta em gols (assistências),
+resistência mesmo lesionado
+e, no fim, derrota pesada.
+Esse tipo de jogo costuma marcar mais do que vitórias fáceis. Porque ali tem dor física, emocional e sensação de “quase”.
+E isso claramentemte afetou, ao ponto de virar uma promessa pessoal: sair da escola com ao menos um título.</p>
+
+            <div class="highlight">
+               <h2>🏆 A Campanha de 2025 — A Promessa</h2>
+
+Depois de tudo que aconteceu nos anos anteriores, 2025 não era só mais um interclasse,era uma obrigação pessoal. Eu tinha prometido pra mim mesmo que não sairia da escola sem um título. Nosso time, Os Pesados, veio mais estruturado, mas ainda com problemas: elenco curto, conflitos internos e a ausência do Renan, que fazia muita falta dentro de quadra. Mesmo assim, montamos um time competitivo, com peças versáteis e um estilo de jogo mais direto.
+
+<h2>⚔️ Fase de Grupos</h2>
+
+Caímos em um grupo complicado, com Galáticos (favoritos) e o Complexo FC.
+No primeiro jogo, contra o Complexo, fiz meu golzinho e a vitória veio (3x1), mas foi enganosa. Criamos muito, mas finalizamos mal. Foi aquele tipo de jogo que expõe um problema sério: volume sem eficiência.
+Contra os Galáticos, veio a realidade. Eles tinham os melhores jogadores da escola, e isso pesou. Fizemos um bom jogo, equilibrado em vários momentos, o rafão ate fez um gol, mas perdemos por 2x1. Não foi um atropelo, mas ficou claro que, pra ser campeão, precisaríamos de mais do que “competir bem”.
+Passamos em segundo, o que nos obrigou a pegar um confronto mais difícil logo de cara.
+
+<h2>🔥 Mata-mata — Unidos da Brilhante</h2>
+
+Esse confronto foi mais tenso do que parece no placar agregado.
+No jogo de ida (4x2), dominamos o primeiro tempo com imposição e organização. Mas no segundo tempo relaxamos, e quase pagamos caro por isso. Esse padrão de queda de intensidade começou a virar um alerta.
+Na volta, veio o caos:
+Time desfalcado com a expulsão do Scachetti por problemas com a diretoria,
+e cansaço acumulado pelo jogo ser 2 dias após o outro.
+Sofremos dois gols relâmpago
+Ali, o psicológico foi mais importante que a tática. Conseguimos reagir, mas o jogo ficou completamente aberto.
+E tem um ponto importante: eu não sai de campo nem por 1 minuto, e perto do fim do jogo, o placar estava em 2x1 para eles, o Bruno recupera a bola na defesa e eu vou em disparada para o ataque receber um passe, mas o Bruno tenta driblar na defesa, perde a bola, e nós levamos o gol que empatava o jogo no agregado. Ali eu explodi de raiva, briguei e xinguei muito, pelo calor do jogo, e por medod e tudo ruir de uma forma tão melancolica. Isso foi detalhe, isso mostra o nível de pressão e cobrança interna que eu estava tendo.
+No final, classificação no último lance. Com um gol do rafão literalmete no estouro do cronômetro.
+Esse tipo de vitória não é bonita, mas fortalece mentalmente.
+
+<h2>🧠 A Final — Pesados x Galáticos</h2>
+
+A final não era só um jogo. Era:
+revanche da fase de grupos,
+os dois melhores times da escola se enfrentando na final
+e, no meu caso, o fechamento de um ciclo inteiro.
+O começo foi ruim.
+Tomamos 2 gols rápidos, e o time parecia travado.
+E aí vem uma das decisões mais simbólicas da minha história:
+o Stuart me aconselha jogar descalço, porque, segundo ele, eu jogava melhor assim. Não é só improviso, é confiança de um amigo. Eu percebi que não estava rendendo no seu máximo no campeonato e fiz uma mudança radical no momento mais crítico.
+Quando você entra:
+já entra cobrando o time e ajeitando como eu podia,
+mudando meu posicionamento (flutuando entre ala e ataque),
+e começando a influenciar diretamente o jogo.
+com isso, após um lance de controle de bola dos Galácticos, Matías tenta um passe por cima, eu intercepto de cabeça dando um passe pro Guga e me projeto pra atacar na ala, o Guga dá um passe progressivo pra mim que domino e chuto forte no alto fazendo nosso 1° gol no jogo, e isso deu confiança pro meu time, e após mais alguns lances, o Rafao sofre uma falta na entrada da área, e em uma jogada ensaiada, rola a bola pra trás e o Scachetti bate forte no canto e empata a partida, finalizando a primeira etapa. Para a segunda etapa, nós continuamos a pressão, e depois de alguns lances de ataque dos Galácticos mal sucedidos, nós ganhamos um lateral no nosso campo de defesa, e eu já me projetei para o ataque de forma despretensiosa, mas ouço o Scachetti me chamar, ele lança uma bola no alto, que eu consigo dar um passe de escorpião pra trás, onde o Guga chega livre e de primeira faz o 3x2, e ali começa o problema, pois os ânimos dos 2 times começou a ficar aflorado, recebi uma entrada forte que não foi marcada, mas relevei isso, e após despachar uma bola para escanteio, enquanto nos preparávamos para defender, acontece uma briga na área, e algumas pessoas invadem a quadra aumentando a confusão, após conseguirmos separar o Dubovick e o Scachetti, o Krausz decide acabar com o jogo, 3x2 para nós, eles até fizeram o gol no escanteio, mas o juiz já tinha apitado antes mesmo do chute, e com isso nos consagramos campeões do último Interclubes.
+A virada não foi sorte, foi impacto direto no jogo.
+Tecnicamente, não foi um final “limpo”.
+Mas esportivamente, o resultado já estava construído: 3x2 para os pesados se sagrarem campeões do Interclubes 2025.
+            </div>
+
+            <h2>🧠 Liderança Fora de Campo</h2>
+            <p>Antes mesmo de me firmar dentro da quadra, eu já desenvolvia uma visão diferente do jogo, observando e participando ativamente fora das quatro linhas.
+Em 2022 e 2023, atuei como Auxiliar Técnico do time de futsal feminino da EMEF Marili Dias, ao lado do professor Malber Luiz. Minha função não se limitava a acompanhar — eu participava diretamente:
+ajudando na organização da equipe,
+orientando posicionamento,
+contribuindo na leitura de jogo durante as partidas.
+O resultado foi concreto:
+🏆 Campeãs dos Jogos Interescolares em 2022 e 2023.
+Dentro dessas campanhas, um destaque marcante foi minha irmã, que por dois anos consecutivos foi líder de artilharia e de assistências.
+Em 2022, na final contra minha antiga escola (EMEF Remo Rinaldi Naddeo), o desempenho dela sintetiza bem o nível do time:
+vitória por 10x0,
+3 gols,
+3 assistências,
+e ainda 3 bolas na trave.
+Esse tipo de atuação não vem só de talento individual, envolve organização coletiva e leitura de jogo, algo que eu ajudava a construir junto com a equipe.
+Ao final de uma dessas campanhas, o professor Malber fez questão de me entregar uma medalha, mesmo eu não sendo jogador. Foi um reconhecimento direto da minha influência no desempenho do time.
+Paralelamente, em 2022, também atuei no time masculino da mesma escola como:
+Auxiliar Técnico,
+Treinador de Goleiros,
+Novamente ao lado do professor Malber Luiz, contribuí na preparação da equipe, especialmente na parte defensiva.
+O time chegou à final e foi:
+🥈 Vice-campeonato dos Jogos Interescolares.
+Essa fase deixa claro um padrão na minha trajetória:
+independente de estar jogando ou não, eu conseguia impactar diretamente o coletivo, seja organizando, orientando ou ajustando o time dentro do jogo.</p>
+
+            <h2>Desafios Enfrentados</h2>
+            <ul class="desafios">
+            <li>Falta de apoio para seguir no futebol</li>
+            <li>Ausência de base e treinamento estruturado</li>
+            <li>Pandemia interrompendo oportunidades importantes</li>
+            <li>Lesões e desgaste físico constante</li>
+            <li>Pressão emocional em jogos decisivos</li>
+            <li>Conflitos internos dentro de equipe</li>
+            <li>Irregularidade de posição em campo</li>
+            </ul>
+
+            <h2>📚 Aprendizados</h2>
+            <p>O futebol, ao longo da minha trajetória, me ensinou a: <br>
+            <li>Tomar decisões sob pressão;</li>
+            <li>Liderar mesmo sem posição formal;</li>
+            <li>Entender o jogo além da execução;</li>
+            <li>Lidar com frustração e derrota;</li>
+            <li>Adaptar meu estilo conforme o contexto;</li>
+            <li>Persistir mesmo sem garantia de retorno.</li></p>
+<h2 class="final">
+Acredite em você mesmo! 
+</h2>
+        </div>
+    </div>
+    <div class="right">
+
+   
+        <div class="card">
+            <h3>Galeria</h3>
+            <div class="galeria">
+                <img src="assets/imagemhistoria1.jpg">
+                <img src="assets/imagemhistoria2.jpg">
+                <img src="assets/imagemhistoria3.jpg">
+                <img src="assets/imagemhistoria4.jpg">
+            </div>
+        </div>
+
+     
+        <div class="card">
+            <h3>🏆 Destaques</h3>
+            <p>🥇 Melhor em Campo - Amistoso: Guáras X Xurupita 2022</p>
+            <p>🥇 Auxiliar Tecnico Campeão: Jogos Interescolares Sub-13 feminino de São Paulo 2022 e 2023</p>
+            <p>🥇 Melhor Fixo - Copa Remo 2018 - EMEF Remo RInaldi Naddeo</p>
+            <p>🥇 Goleiro do Campeonato - Interclasses 2023 - EE Alexandre Von Humboldt
+            <p>🥇 Campeão Interclasses 2022 - EMEF Remo RInaldi Naddeo</p>
+            <p>🥇 Campeão Interclubes 2025 - EE Alexandre Von Humboldt</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<footer>
+    <div class="footer-container">
+        <p>📞 Contato: (11) 93900-9825</p>
+        <p>✉️ Email: avp.augustovpassos@gmail.com</p>
+        <p>© 2026 Le' Fut Goat</p>
+    </div>
+</footer>
+
+</body>
+</html>
+
+<script>
+    // Função que verifica se o usuário está logado
+    function verificarLogin() {
+
+        // Pega o ID salvo na sessão
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        // Pega o nav
+        var nav = document.getElementById("navLinks");
+
+        // Se estiver logado
+        if (idUsuario != null) {
+
+            // Mostra botão de sair
+            nav.innerHTML += `
+                <a href="#" onclick="sair()">Sair</a>
+            `;
+
+        } else {
+
+            // Se NÃO estiver logado, mostra login e cadastro
+            nav.innerHTML += `
+                <a href="login.html">Login</a>
+                <a href="cadastro.html">Cadastro</a>
+            `;
+        }
+    }
+
+    // Função de logout
+    function sair() {
+
+        // Limpa a sessão
+        sessionStorage.clear();
+
+        // Redireciona pra home
+        window.location = "index.html";
+    }
+
+    // Executa quando a página carregar
+    verificarLogin();
+</script>

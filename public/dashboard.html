@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Dashboard Le' Fut Goat</title>
+    <link rel="icon" href="assets/favicon2.jpg">
+    <link rel="stylesheet" href="cssHeader.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* (SEU CSS ORIGINAL MANTIDO 100%) */
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #000000;
+            padding-top: 70px;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        .kpis {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .kpi {
+            width: 30%;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+
+        .verde { background-color: green; }
+        .amarelo { background-color: goldenrod; }
+        .vermelho { background-color: red; }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #EB0D3F;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .barra-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .barra {
+            height: 25px;
+            margin-bottom: 10px;
+            color: white;
+            padding-left: 10px;
+        }
+
+        .explicacao {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        canvas {
+            max-width: 500px;
+            margin: auto;
+            display: block;
+        }
+
+        footer {
+            background-color: #EB0D3F;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Le' Fut Goat</h1>
+    <nav id="navLinks">
+        <a href="minhaHistoria.html">Minha<br>História<br>no Futebol</a>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- INPUTS (AGORA FUTEBOL) -->
+    <div class="explicacao">
+        <h3>Monte sua carta estilo FIFA</h3>
+        <p>Insira seus atributos (0 a 100):</p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+
+            <div>
+                <label>Ritmo</label><br>
+                <input id="ritmo" type="number">
+            </div>
+
+            <div>
+                <label>Chute</label><br>
+                <input id="chute" type="number">
+            </div>
+
+            <div>
+                <label>Passe</label><br>
+                <input id="passe" type="number">
+            </div>
+
+            <div>
+                <label>Drible</label><br>
+                <input id="drible" type="number">
+            </div>
+
+            <div>
+                <label>Defesa</label><br>
+                <input id="defesa" type="number">
+            </div>
+
+            <div>
+                <label>Físico</label><br>
+                <input id="fisico" type="number">
+            </div>
+
+        </div>
+
+        <br>
+        <button onclick="gerarDashboard()">Gerar análise</button>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <div class="barra-container" id="barras">
+        <h2>Desempenho por Atributo</h2>
+    </div>
+
+    <div class="barra-container">
+        <h2>Radar do Jogador</h2>
+        <canvas id="graficoRadar"></canvas>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-container">
+        <p>📞 Contato: (11) 93900-9825</p>
+        <p>✉️ Email: avp.augustovpassos@gmail.com</p>
+        <p>© 2026 Le' Fut Goat</p>
+    </div>
+</footer>
+
+</body>
+
+<script>
+function verificarLogin() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var nav = document.getElementById("navLinks");
+
+    if (idUsuario != null) {
+        nav.innerHTML += `<a href="#" onclick="sair()">Sair</a>`;
+    } else {
+        nav.innerHTML += `
+            <a href="login.html">Login</a>
+            <a href="cadastro.html">Cadastro</a>
+        `;
+    }
+}
+
+function sair() {
+    sessionStorage.clear();
+    window.location = "index.html";
+}
+
+verificarLogin();
+</script>
+
+<script src="dashboard.js"></script>
+
+</html>
