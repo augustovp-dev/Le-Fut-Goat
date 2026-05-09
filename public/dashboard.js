@@ -21,6 +21,7 @@ function descobrirPosicao(dados) {
     if (passe > 75 && drible > 70) return "Meio-campo";
     if (chute > 80) return "Atacante";
     if (ritmo > 80 && drible > 75) return "Ponta";
+    if (ritmo > 80 && defesa > 75) return "Lateral";
 
     return "Volante";
 }
@@ -30,7 +31,6 @@ function gerarDashboard(){
     let kpis = document.getElementById("kpis");
     let barras = document.getElementById("barras");
 
-    // limpa antes de gerar
     kpis.innerHTML = "";
     barras.innerHTML = "<h2>Desempenho por Atributo</h2>";
 
@@ -45,7 +45,6 @@ function gerarDashboard(){
 
     let resumo = {};
 
-    // LOOP (apenas KPIs e barras)
     for (let i = 0; i < dados.length; i++) {
 
         let nome = dados[i][0];
@@ -57,7 +56,6 @@ function gerarDashboard(){
 
         resumo[nome.toLowerCase()] = valor;
 
-        // KPI
         kpis.innerHTML += `
         <div class="kpi ${classe}">
             <h3>${nome}</h3>
@@ -65,7 +63,6 @@ function gerarDashboard(){
         </div>
         `;
 
-        // Barra
         barras.innerHTML += `
         <div class="barra ${classe}" style="width:${valor}%;">
             ${nome} - ${valor}
@@ -73,7 +70,7 @@ function gerarDashboard(){
         `;
     }
 
-    // OVERALL (estilo FIFA)
+    // OVERALL 
     let overall = Math.round(
         (
             (resumo.ritmo || 0) +
@@ -82,7 +79,7 @@ function gerarDashboard(){
             (resumo.drible || 0) +
             (resumo.defesa || 0) +
             (resumo["físico"] || 0)
-        ) / 6
+        ) / 5,5
     );
 
     kpis.innerHTML += `
@@ -109,7 +106,6 @@ function gerarDashboard(){
     </div>
     `;
 
-    // FETCH (fora do loop)
     fetch("/dashboard", {
         method: "POST",
         headers: {
@@ -129,7 +125,7 @@ function gerarDashboard(){
         console.log("Backend:", data);
     });
 
-    // GRÁFICO RADAR (fixo estilo FIFA)
+    // GRÁFICO RADAR
     if (window.grafico) {
         window.grafico.destroy();
     }
