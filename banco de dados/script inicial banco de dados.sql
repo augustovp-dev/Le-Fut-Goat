@@ -1,49 +1,53 @@
 CREATE DATABASE lefutgoat;
 USE lefutgoat;
 
-CREATE TABLE users (
-id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-email VARCHAR(100),
-senha VARCHAR(100)
+CREATE TABLE usuarios (
+    id_usuario    INT AUTO_INCREMENT PRIMARY KEY,
+    nome          VARCHAR(100)  NOT NULL,
+    email         VARCHAR(100)  NOT NULL UNIQUE,
+    senha         VARCHAR(100)  NOT NULL,
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE cartacomun(
- id_carta INT PRIMARY KEY AUTO_INCREMENT,
- fk_usuario INT,
- ranking INT UNIQUE,
- ritmo INT,
- chute INT,
- passe INT,
- drible INT,
- defesa INT,
- fisico INT,
- overall INT,
- posicao INT,
- foreign key(fk_usuario) REFERENCES users(id_usuario)
+CREATE TABLE cartas (
+    id_carta      INT AUTO_INCREMENT PRIMARY KEY,
+    fk_usuario    INT NOT NULL,
+    nome          VARCHAR(100) NOT NULL,
+    tipo          VARCHAR(20)  NOT NULL,
+    posicao       VARCHAR(10)  NOT NULL,
+    modo          VARCHAR(20)  NOT NULL,
+    overall       INT NOT NULL,
+    ritmo         INT NOT NULL CHECK (ritmo  BETWEEN 0 AND 99),
+    chute         INT NOT NULL CHECK (chute  BETWEEN 0 AND 99),
+    passe         INT NOT NULL CHECK (passe  BETWEEN 0 AND 99),
+    drible        INT NOT NULL CHECK (drible BETWEEN 0 AND 99),
+    defesa        INT NOT NULL CHECK (defesa BETWEEN 0 AND 99),
+    fisico        INT NOT NULL CHECK (fisico BETWEEN 0 AND 99),
+    data_criacao  DATETIME      DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (fk_usuario) REFERENCES usuarios(id_usuario)
 );
 
 CREATE TABLE cartagk(
-id_cartagoleiro INT PRIMARY KEY AUTO_INCREMENT,
-fk_usuario INT UNIQUE,
-ranking INT UNIQUE,
-elasticidade INT,
-maneijo INT,
-chute INT,
-reflexos INT,
-posicionamento INT,
-velocidade INT,
-overall INT,
-FOREIGN KEY(fk_usuario)REFERENCES users(id_usuario) 
+    id_cartagoleiro INT PRIMARY KEY AUTO_INCREMENT,
+    fk_usuario INT UNIQUE,
+    ranking INT UNIQUE,
+    elasticidade INT,
+    maneijo INT,
+    chute INT,
+    reflexos INT,
+    posicionamento INT,
+    velocidade INT,
+    overall INT,
+    FOREIGN KEY(fk_usuario)REFERENCES users(id_usuario) 
 );
 
-CREATE TABLE postagem (
-id_postagem INT PRIMARY KEY AUTO_INCREMENT,
-fk_user INT,
-fk_carta INT UNIQUE,
-fk_cartagoleiro INT UNIQUE,
-FOREIGN KEY(fk_user) REFERENCES users(id_usuario),
-FOREIGN KEY(fk_carta) REFERENCES cartacomun(id_carta),
-FOREIGN KEY(fk_cartagoleiro) REFERENCES cartagk(id_cartagoleiro)
+CREATE TABLE historico_overall (
+    id_historico  INT AUTO_INCREMENT PRIMARY KEY,
+    fk_usuario    INT NOT NULL,
+    overall       INT NOT NULL,
+    posicao       VARCHAR(10) NOT NULL,
+    modo          VARCHAR(20) NOT NULL,
+    momento       DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (fk_usuario) REFERENCES usuarios(id_usuario)
 );
-
 
