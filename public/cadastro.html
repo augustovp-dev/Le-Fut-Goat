@@ -3,147 +3,136 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cadastro </title>
+<title>Cadastro</title>
 <link rel="icon" href="./assets/favicon2.jpg">
-<script src="./js/sessao.js"></script>
+<script src="./js/sessao.js" defer></script>
 <link rel="stylesheet" href="cssHeader.css">
 
 <style>
 body {
-    margin: 0; /* Remove margens do navegador */
-    font-family: Arial, sans-serif; /* Define a fonte */
+    margin: 0;
+    font-family: Arial, sans-serif;
     background: linear-gradient(to right, #000000, #000000);
-    padding-top: 70px; /* Espaço no topo para não sobrepor o header */
+    padding-top: 70px;
 }
 
 .login-container {
-    display: flex; /* Organiza os elementos lado a lado */
-    height: calc(100vh - 70px); /* Altura total menos a altura do header */
+    display: flex;
+    height: calc(100vh - 70px);
 }
 
 .login-left {
-    flex: 1; /* Ocupa metade da tela */
+    flex: 1;
     color: white;
     display: flex;
-    flex-direction: column; /* Organiza em coluna */
-    justify-content: center; /* Centraliza verticalmente */
-    padding: 60px; /* Espaçamento interno */
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
 }
 
 .login-left h2 {
-    font-size: 2.5em; /* Tamanho do título */
+    font-size: 2.5em;
 }
 
 .login-right {
-    flex: 1; /* Ocupa metade da tela */
+    flex: 1;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+    align-items: center;
 }
-
 
 .card {
     background-color: white;
     padding: 30px;
-    border-radius: 10px; /* Bordas arredondadas */
-    width: 350px; /* Largura fixa */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Sombra ao redor */
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-
 .campo {
-    margin-bottom: 15px; /* Espaço entre os campos */
+    margin-bottom: 15px;
 }
 
 .campo input {
-    width: 100%; /* Ocupa toda largura */
-    padding: 10px; 
-    border-radius: 5px; /* Bordas arredondadas */
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-
 .campo input:focus {
-    outline: none; /* Remove borda padrão ao clicar */
+    outline: none;
     border-color: #355391;
-    box-shadow: 0 0 5px rgba(53,83,145,0.5); /* Adiciona efeito de foco */
+    box-shadow: 0 0 5px rgba(53,83,145,0.5);
 }
-
 
 .botao {
     width: 100%;
     padding: 12px;
     background-color: #EB0D3F;
     color: white;
-    border: none; /* Remove borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Mostra o cursor de clique */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .botao:hover {
-    background-color: #000000; /* Muda a cor ao passar o mouse */
+    background-color: #000000;
 }
 
-
-
 .card_erro {
-    display: none; /* Pra deixar escondido */
+    display: none;
     background-color: green;
     color: white;
     padding: 10px;
-    margin-bottom: 10px; /* Espaço abaixo */
+    margin-bottom: 10px;
     border-radius: 5px;
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
 }
 footer {
     background-color: #EB0D3F;
     color: white;
-    margin-top: 40px; /* Espaço acima */
+    margin-top: 40px;
 }
 
 .footer-container {
-    display: flex; /* Organiza itens em linha */
+    display: flex;
     justify-content: center;
-    gap: 40px; /* Espaço entre itens */
+    gap: 40px;
     padding: 15px;
-    flex-wrap: wrap; /* Permite quebrar linha */
-    text-align: center; /* Centraliza texto */
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 .footer-container p {
-    margin: 0; /* Remove margens */
+    margin: 0;
 }
 </style>
 </head>
 
 <body>
-
 <header>
     <h1>Le' Fut Goat</h1>
-
-   <nav id="navLinks">
-    <a href="minhaHistória.html">Minha<br>Historia<br>no Futebol</a>
-    <a href="index.html">Home</a>
-    <a href="dashboard.html">Dashboard</a>
-</nav>
+    <nav id="navLinks">
+        <a href="minhaHistória.html">Minha<br>História<br>no Futebol</a>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
 </header>
 
 <div class="login-container">
-
     <div class="login-left">
-        <h2>Crie sua conta ⚽</h2>
+        <h2>Crie sua conta</h2>
         <p>Comece agora sua jornada no futebol.</p>
     </div>
 
     <div class="login-right">
-
         <div class="card">
-
             <div class="card_erro" id="cardErro">
                 <span id="mensagem_erro"></span>
             </div>
 
-            <h2> Bem-vindo! ⚽</h2>
+            <h2>Bem-vindo!</h2>
 
             <div class="formulario">
                 <div class="campo">
@@ -153,247 +142,107 @@ footer {
 
                 <div class="campo">
                     <span>Email:</span>
-                    <input id="email_input" type="text"  placeholder="meuemail@provedor.com">
+                    <input id="email_input" type="text" placeholder="meuemail@provedor.com">
                 </div>
 
                 <div class="campo">
                     <span>Senha:</span>
-                    <input id="senha_input" type="password"  placeholder="***********">
+                    <input id="senha_input" type="password" placeholder="***********">
                 </div>
 
                 <div class="campo">
                     <span>Confirmar senha:</span>
-                    <input id="confirmacao_senha_input" type="password"  placeholder="***********">
+                    <input id="confirmacao_senha_input" type="password" placeholder="***********">
                 </div>
 
-                <div class="campo">
-                    <span>CPF:</span>
-                    <input id="cpf_input" type="text" placeholder="***********">
-                </div>
-
-               <button class="botao" onclick="cadastrar()" id="btnCadastro">Cadastrar</button>
+                <button class="botao" onclick="cadastrar()" id="btnCadastro" type="button">Cadastrar</button>
                 <div id="div_aguardar" class="loading-div"></div>
             </div>
-
         </div>
-
     </div>
 </div>
 
-</body>
-</html>
 <footer>
     <div class="footer-container">
-        <p>📞 Contato: (11) 93900-9825</p>
-        <p>✉️ Email: avp.augustovpassos@gmail.com</p>
-        <p>© 2026 Le' Fut Goat</p>
+        <p>Contato: (11) 93900-9825</p>
+        <p>Email: avp.augustovpassos@gmail.com</p>
+        <p>2026 Le' Fut Goat</p>
     </div>
 </footer>
 
 <script>
+function validarEmail(email) {
+    var arroba = email.indexOf("@");
+    var ponto = email.lastIndexOf(".");
 
-    // Função que verifica se o usuário está logado
-    function verificarLogin() {
+    return arroba > 0 && ponto > arroba + 1 && ponto < email.length - 1;
+}
 
-        // Pega o ID salvo na sessão
-        var idUsuario = sessionStorage.ID_USUARIO;
+function cadastrar() {
+    var nomeVar = document.getElementById("nome_input").value.trim();
+    var emailVar = document.getElementById("email_input").value.trim();
+    var senhaVar = document.getElementById("senha_input").value;
+    var confirmacaoSenhaVar = document.getElementById("confirmacao_senha_input").value;
 
-        // Pega o nav
-        var nav = document.getElementById("navLinks");
-
-        // Se estiver logado
-        if (idUsuario != null) {
-
-            // Mostra botão de sair
-            nav.innerHTML += `
-                <a href="#" onclick="sair()">Sair</a>
-            `;
-
-        } else {
-
-            // Se NÃO estiver logado, mostra login e cadastro
-            nav.innerHTML += `
-                <a href="login.html">Login</a>
-                <a href="cadastro.html">Cadastro</a>
-            `;
-        }
-    }
-
-    // Função de logout
-    function sair() {
-
-        // Limpa a sessão
-        sessionStorage.clear();
-
-        // Redireciona pra home
-        window.location = "index.html";
-    }
-
-    // Executa quando a página carregar
-    verificarLogin();
-    
-   function cadastrar() {
-
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var cpfVar = cpf_input.value;
-
-    var dominiosPermitidos = ["gmail.com", "hotmail.com", "outlook.com"];
-
-    // VALIDAR DOMÍNIO
-    function validarDominio(email) {
-        var dominio = "";
-        var achouArroba = false;
-
-        for (var i = 0; i < email.length; i++) {
-            if (email[i] == "@") {
-                achouArroba = true;
-            } else if (achouArroba) {
-                dominio += email[i];
-            }
-        }
-
-        for (var j = 0; j < dominiosPermitidos.length; j++) {
-            if (dominio == dominiosPermitidos[j]) {
-                return true;
-            }
-        }
-
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        mostrarMensagem("Preencha todos os campos.");
         return false;
     }
 
-    // FORÇA DA SENHA (SEM includes/match)
-    function calcularForcaSenha(senha) {
-        var forca = 0;
-
-        forca += senha.length;
-
-        for (var i = 0; i < senha.length; i++) {
-            var letra = senha[i];
-
-            if (letra == "@" || letra == "#") {
-                forca += 5;
-            }
-
-            if (letra >= "A" && letra <= "Z") {
-                forca += 5;
-            }
-        }
-
-        return forca;
+    if (nomeVar.length < 2) {
+        mostrarMensagem("Informe um nome válido.");
+        return false;
     }
 
-    // CPF
-    function validarCPF(cpf) {
-        var soma = 0;
-
-        for (var i = 0; i < cpf.length; i++) {
-            soma += Number(cpf[i]);
-        }
-
-        return soma > 10;
+    if (!validarEmail(emailVar)) {
+        mostrarMensagem("Informe um email válido.");
+        return false;
     }
 
-    // VALIDAÇÕES BÁSICAS
-    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cpfVar == "") {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Preencha todos os campos)";
-        return;
-    }
-
-    if (!(nomeVar.length > 1)) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Nome inválido)";
-        return;
-    }
-
-    // VALIDAR EMAIL SEM includes
-    var temArroba = false;
-    var temPonto = false;
-
-    for (var i = 0; i < emailVar.length; i++) {
-        if (emailVar[i] == "@") temArroba = true;
-        if (emailVar[i] == ".") temPonto = true;
-    }
-
-    if (!(temArroba && temPonto)) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Email inválido)";
-        return;
-    }
-
-    if (!(senhaVar.length > 6)) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Senha inválida)";
-        return;
+    if (senhaVar.length < 6) {
+        mostrarMensagem("A senha precisa ter pelo menos 6 caracteres.");
+        return false;
     }
 
     if (senhaVar != confirmacaoSenhaVar) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Senhas diferentes)";
-        return;
+        mostrarMensagem("As senhas não conferem.");
+        return false;
     }
 
-    if (!(cpfVar.length == 11)) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(CPF inválido)";
-        return;
-    }
+    aguardar();
 
-    // VALIDAÇÕES AVANÇADAS
-    if (!validarDominio(emailVar)) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Use gmail, hotmail ou outlook)";
-        return;
-    }
-
-    var forcaSenha = calcularForcaSenha(senhaVar);
-
-    if (forcaSenha < 10) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Senha fraca)";
-        return;
-    }
-
-    if (!validarCPF(cpfVar)) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(CPF inválido)";
-        return;
-    }
-
-    // FETCH (igual você já tinha)
     fetch("/usuarios/cadastrar", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             nomeServer: nomeVar,
             emailServer: emailVar,
-            senhaServer: senhaVar,
-            cpfServer: cpfVar
-        }),
+            senhaServer: senhaVar
+        })
     })
     .then(function (resposta) {
-        if (resposta.ok) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML = "Cadastro realizado!";
+        finalizarAguardar();
 
-            setTimeout(() => {
+        if (resposta.ok) {
+            mostrarMensagem("Cadastro realizado.");
+            setTimeout(function () {
                 window.location = "login.html";
-            }, 2000);
+            }, 1200);
+            return;
         }
+
+        resposta.text().then(function (texto) {
+            mostrarMensagem(texto);
+        });
     })
-    .catch(function (erro) {
-        console.log(erro);
+    .catch(function () {
+        finalizarAguardar("Não foi possível cadastrar agora.");
     });
 
     return false;
 }
-function sumirMensagem() {
-    cardErro.style.display = "none"; // Esconde a mensagem de erro
-  }
-
 </script>
+</body>
+</html>

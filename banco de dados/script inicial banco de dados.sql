@@ -42,12 +42,12 @@ CREATE TABLE cartagk(
 );
 
 CREATE TABLE historico_overall (
-    id_historico  INT AUTO_INCREMENT PRIMARY KEY,
-    fk_usuario    INT NOT NULL,
-    overall       INT NOT NULL,
-    posicao       VARCHAR(10) NOT NULL,
-    modo          VARCHAR(20) NOT NULL,
-    momento       DATETIME DEFAULT CURRENT_TIMESTAMP,
+    id_historico INT AUTO_INCREMENT PRIMARY KEY,
+    fk_usuario INT NOT NULL,
+    overall INT NOT NULL,
+    posicao VARCHAR(10) NOT NULL,
+    modo VARCHAR(20) NOT NULL,
+    momento DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (fk_usuario) REFERENCES usuarios(id_usuario)
 );
 

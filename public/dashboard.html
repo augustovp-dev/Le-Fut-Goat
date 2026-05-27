@@ -3,14 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-
     <title>Dashboard Le' Fut Goat</title>
     <link rel="icon" href="assets/favicon2.jpg">
     <link rel="stylesheet" href="cssHeader.css">
+    <script src="./js/sessao.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
-        /* (SEU CSS ORIGINAL MANTIDO 100%) */
         body {
             margin: 0;
             font-family: Arial;
@@ -104,55 +103,50 @@
 </head>
 
 <body>
-
 <header>
     <h1>Le' Fut Goat</h1>
     <nav id="navLinks">
-        <a href="minhaHistoria.html">Minha<br>História<br>no Futebol</a>
+        <a href="minhaHistória.html">Minha<br>História<br>no Futebol</a>
         <a href="index.html">Home</a>
         <a href="dashboard.html">Dashboard</a>
     </nav>
 </header>
 
 <div class="container">
-
-    <!-- INPUTS (AGORA FUTEBOL) -->
     <div class="explicacao">
         <h3>Monte sua carta estilo FIFA</h3>
-        <p>Insira seus atributos (0 a 100):</p>
+        <p>Insira seus atributos de 0 a 100:</p>
 
         <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-
             <div>
                 <label>Ritmo</label><br>
-                <input id="ritmo" type="number">
+                <input id="ritmo" type="number" min="0" max="100">
             </div>
 
             <div>
                 <label>Chute</label><br>
-                <input id="chute" type="number">
+                <input id="chute" type="number" min="0" max="100">
             </div>
 
             <div>
                 <label>Passe</label><br>
-                <input id="passe" type="number">
+                <input id="passe" type="number" min="0" max="100">
             </div>
 
             <div>
                 <label>Drible</label><br>
-                <input id="drible" type="number">
+                <input id="drible" type="number" min="0" max="100">
             </div>
 
             <div>
                 <label>Defesa</label><br>
-                <input id="defesa" type="number">
+                <input id="defesa" type="number" min="0" max="100">
             </div>
 
             <div>
                 <label>Físico</label><br>
-                <input id="fisico" type="number">
+                <input id="fisico" type="number" min="0" max="100">
             </div>
-
         </div>
 
         <br>
@@ -169,42 +163,16 @@
         <h2>Radar do Jogador</h2>
         <canvas id="graficoRadar"></canvas>
     </div>
-
 </div>
 
 <footer>
     <div class="footer-container">
-        <p>📞 Contato: (11) 93900-9825</p>
-        <p>✉️ Email: avp.augustovpassos@gmail.com</p>
-        <p>© 2026 Le' Fut Goat</p>
+        <p>Contato: (11) 93900-9825</p>
+        <p>Email: avp.augustovpassos@gmail.com</p>
+        <p>2026 Le' Fut Goat</p>
     </div>
 </footer>
 
-</body>
-
-<script>
-function verificarLogin() {
-    var idUsuario = sessionStorage.ID_USUARIO;
-    var nav = document.getElementById("navLinks");
-
-    if (idUsuario != null) {
-        nav.innerHTML += `<a href="#" onclick="sair()">Sair</a>`;
-    } else {
-        nav.innerHTML += `
-            <a href="login.html">Login</a>
-            <a href="cadastro.html">Cadastro</a>
-        `;
-    }
-}
-
-function sair() {
-    sessionStorage.clear();
-    window.location = "index.html";
-}
-
-verificarLogin();
-</script>
-
 <script src="dashboard.js"></script>
-
+</body>
 </html>

@@ -6,49 +6,46 @@
     <title>Le' Fut Goat</title>
     <link rel="icon" href="assets/favicon2.jpg">
     <link rel="stylesheet" href="cssHeader.css">
+    <script src="./js/sessao.js" defer></script>
 
     <style>
-      
 .hero {
-    position: relative; /* Permite posicionar elementos dentro dele */
-    height: 100vh; /* Ocupa altura da tela menos o header */
-    overflow: hidden; /* Esconde o que passar da área */
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
 }
-
 
 .video-bg {
-    position: absolute; z-index: flex; /* Permite posicionamento livre */
+    position: absolute; z-index: -99;
     top: 50%;
     left: 50%;
-    min-width: 100%; /* Garante que ocupe toda largura */
-    min-height: 100%; /* Garante que ocupe toda altura */
-    transform: translate(-50%, -50%); /* Centraliza o vídeo */
-    object-fit: cover; /* Ajusta o vídeo sem distorcer */
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
 }
 
-
 .overlay {
-    position: absolute; /* Fica sobre o vídeo */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Camada escura por cima do vídeo */
+    background: rgba(0, 0, 0, 0.5);
 }
 
-
 .hero-content {
-    position: relative; /* Fica acima do overlay */
-    z-index: 2; /* Garante que fique na frente */
+    position: relative;
+    z-index: 2;
     color: white;
     text-align: center;
     top: 50%;
-    transform: translateY(-50%); /* Centraliza verticalmente */
+    transform: translateY(-50%);
     padding: 20px;
 }
 
 .hero-content h2 {
-    font-size: 3em; /* Tamanho do título */
+    font-size: 3em;
     margin-bottom: 10px;
 }
 
@@ -57,57 +54,16 @@
     margin-bottom: 20px;
 }
 
-
-        body{
-    margin: 0; /* Remove margens */
+body{
+    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #000000; 
+    background-color: #000000;
     background: #000000
 }
 
-
- /* header {
-    background-color: #EB0D3F;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-
-    box-sizing: border-box; 
-}
-nav {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-right: 20px; 
-}
-
-header h1 {
-    color: white;
-    margin: 0;
-    margin-left: 20px; 
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}  */
-
-
-
-
 .container {
-    width: 80%; /* Define largura */
-    margin: auto; /* Centraliza */
+    width: 80%;
+    margin: auto;
     margin-top: 20px;
     display: flex;
     align-items: center;
@@ -126,27 +82,26 @@ nav a {
     margin-top: 40px;
 
     display: flex;
-    gap: 20px; /* Espaço entre cards */
-    flex-wrap: wrap; /* Permite quebrar linha */
+    gap: 20px;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .card {
     background-color: white;
     padding: 20px;
-    border-radius: 10px; /* Bordas arredondadas */
+    border-radius: 10px;
 
     width: 300px;
     min-height: 350px;
- 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra */
-    transition: 0.3s; /* Animação suave */
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-8px); /* Levanta o card ao passar o mouse */
+    transform: translateY(-8px);
 }
-
 
 .card h2 {
     color: #EB0D3F;
@@ -157,7 +112,7 @@ nav a {
     color: white;
     border: none;
     padding: 10px;
-    cursor: pointer; /* Cursor de clique */
+    cursor: pointer;
     border-radius: 5px;
 }
 footer {
@@ -168,8 +123,8 @@ footer {
 
 .footer-container {
     display: flex;
-    justify-content: center; /* Centraliza */
-    gap: 40px; /* Espaço entre itens */
+    justify-content: center;
+    gap: 40px;
     padding: 15px;
     flex-wrap: wrap;
     text-align: center;
@@ -179,9 +134,9 @@ footer {
     margin: 0;
 }
 .cta {
-    text-align: center; /* Centraliza conteúdo */
+    text-align: center;
     color: white;
-    padding: 80px 20px; /* Espaçamento */
+    padding: 80px 20px;
 }
 
 .cta h2 {
@@ -194,7 +149,6 @@ footer {
     margin-bottom: 30px;
 }
 
-
 .cta-buttons {
     display: flex;
     justify-content: center;
@@ -203,7 +157,7 @@ footer {
 }
 
 .btn-outline {
-    border: 2px solid white; /* Borda branca */
+    border: 2px solid white;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -211,23 +165,23 @@ footer {
 }
 
 .btn-outline:hover {
-    background-color: white; /* Inverte cores ao passar mouse */
+    background-color: white;
     color: #EB0D3F;
 }
     </style>
-
 </head>
+
+<body>
 <header>
     <h1>Le' Fut Goat</h1>
-    <nav>
-        <nav id="navLinks">
-    <a href="minhaHistória.html">Minha<br>Historia<br>no Futebol</a>
-    <a href="index.html">Home</a>
-    <a href="dashboard.html">Dashboard</a>
-</nav>
+    <nav id="navLinks">
+        <a href="minhaHistória.html">Minha<br>História<br>no Futebol</a>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
 </header>
 
- <section class="hero"> 
+<section class="hero">
     <video autoplay muted loop class="video-bg">
         <source src="assets/Videobg.mp4" type="video/mp4">
     </video>
@@ -235,124 +189,83 @@ footer {
     <div class="overlay"></div>
 
     <div class="hero-content">
-        <b><h3>Mais que um esporte, Mais que uma paixão,</h3></b>
-        <b><p>Futebol é vida!</p></b>
+        <h3>Mais que um esporte, mais que uma paixão</h3>
+        <p>Futebol é vida.</p>
     </div>
 </section>
+
 <section class="conteudo">
-
     <div class="card">
-        <h2>⚽ História do Futebol</h2>
+        <h2>História do Futebol</h2>
         <p>
-            O futebol moderno foi criado na Inglaterra em 1863 com a fundação da The Football Association, que estabeleceu as primeiras regras oficiais, separando o futebol do rugby. Embora existam registros de jogos semelhantes na China antiga, Grécia e Roma, o esporte como conhecemos surgiu nas escolas britânicas, onde foi organizado e padronizado. A partir daí, espalhou-se pelo mundo com a colonização, tornando-se profissional e ganhando milhões de adeptos. 
+            O futebol moderno foi organizado na Inglaterra em 1863, quando a The Football Association definiu regras oficiais e separou o esporte do rugby.
             <br><br>
-            Em 1904, foi fundada a FIFA, e em 1930 ocorreu a primeira Copa do Mundo, no Uruguai. O Brasil aderiu ao futebol em 1894 graças a Charles Miller, que trouxe as regras e equipamentos da Inglaterra. Desde então, o país se tornou a maior potência do esporte, com cinco títulos mundiais, consolidando o futebol como paixão nacional e fenômeno global.
+            A partir dali, o jogo se espalhou pelo mundo. A FIFA foi fundada em 1904 e a primeira Copa do Mundo aconteceu em 1930, no Uruguai.
         </p>
     </div>
 
     <div class="card">
-        <h2>🇧🇷 Futebol no Brasil</h2>
+        <h2>Futebol no Brasil</h2>
         <p>
-            O futebol no Brasil começou em 1894 com a chegada de Charles Miller, que trouxe bolas, regras e uniformes da Inglaterra. Em 1895, organizou o primeiro jogo oficial em São Paulo, entre funcionários de empresas britânicas. Inicialmente restrito à elite, o esporte se expandiu com a criação do São Paulo Athletic Club e da Liga Paulista de Futebol, tornando-se profissional em 1933 e abrindo espaço para jogadores de todas as classes. 
+            O futebol chegou ao Brasil no fim do século XIX, com Charles Miller. No começo era mais restrito à elite, mas logo ganhou espaço nas ruas, escolas e clubes.
             <br><br>
-            A seleção brasileira estreou em 1914 e conquistou seu primeiro título na Copa América de 1919. Ao longo do século XX, o Brasil se tornou a maior potência do futebol mundial, vencendo a Copa do Mundo em 1958, 1962, 1970, 1994 e 2002. Clubes como Santos, Flamengo e São Paulo também tiveram sucesso internacional, consolidando o futebol como parte central da cultura brasileira.
+            Com o tempo, virou parte da cultura brasileira. A seleção, os clubes e as torcidas ajudaram a transformar o esporte em uma paixão nacional.
         </p>
     </div>
 
     <div class="card">
-        <h2>🏆 Principais Times</h2>
+        <h2>Principais Times</h2>
         <p>
-            Alguns dos principais times de futebol do Brasil são Flamengo, Palmeiras, São Paulo, Corinthians, Grêmio, Internacional, Cruzeiro, Atlético Mineiro, Santos e Fluminense. Esses clubes destacam-se por seus grandes títulos nacionais e internacionais, além de torcidas expressivas. O Flamengo lidera o ranking da CBF em 2026, seguido por Palmeiras e São Paulo, refletindo sua hegemonia recente.
+            Flamengo, Palmeiras, São Paulo, Corinthians, Santos, Grêmio, Internacional, Cruzeiro, Atlético Mineiro e Fluminense estão entre os clubes mais tradicionais do Brasil.
             <br><br>
-            Esses times destacam-se por grandes conquistas nacionais e internacionais. O Flamengo é o atual campeão brasileiro e tem títulos continentais recentes. Palmeiras possui o maior número de títulos nacionais, enquanto Santos, São Paulo e Corinthians venceram mundiais de clubes. A competição entre esses clubes movimenta milhões de torcedores e define a elite do futebol brasileiro.
+            Cada um tem sua história, seus títulos e uma torcida que marca presença dentro e fora dos estádios.
         </p>
     </div>
 
     <div class="card">
-        <h2>⭐ Grandes Jogadores</h2>
+        <h2>Grandes Jogadores</h2>
         <p>
-            Além dos brasileiros, o futebol teve lendas globais como Diego Maradona, ídolo na Argentina e no Napoli, e Lionel Messi e Cristiano Ronaldo, que dominaram o esporte nas últimas duas décadas. Outras grandes figuras incluem Pelé (Brasil), Johan Cruyff (Holanda), Franz Beckenbauer (Alemanha) e Zinedine Zidane (França), todos reconhecidos por seu estilo revolucionário.
+            O futebol teve nomes históricos como Pelé, Garrincha, Maradona, Messi, Cristiano Ronaldo, Ronaldo Fenômeno, Ronaldinho Gaúcho, Romário, Zico, Cafu e muitos outros.
             <br><br>
-            Os principais jogadores brasileiros da história incluem Pelé, o único tricampeão mundial e considerado o maior de todos os tempos; Garrincha, decisivo nas Copas de 1958 e 1962; Ronaldo Fenômeno, artilheiro do penta e um dos maiores centroavantes; Ronaldinho Gaúcho, eleito duas vezes melhor do mundo; e Romário, gênio da pequena área e peça chave no tetra. Outros ícones são Zico, Sócrates, Rivelino, Cafu, Roberto Carlos e Neymar Jr., que mantém a tradição do futebol brasileiro no cenário mundial.
+            Cada jogador deixou uma marca diferente: gols, dribles, liderança, títulos ou uma forma única de enxergar o jogo.
         </p>
-        
     </div>
-<div class="card">
-    <h2>📏 Regras Básicas</h2>
-    <p>
-        O futebol é jogado entre duas equipes de 11 jogadores, sendo um goleiro e dez na linha. O objetivo é marcar gols, fazendo a bola ultrapassar totalmente a linha do gol adversário. A partida tem dois tempos de 45 minutos, com intervalo de 15 minutos. A bola está em jogo durante a maior parte do tempo, só saindo quando cruza as linhas laterais ou de fundo, ou quando o árbitro interrompe o jogo. 
-        <br><br>
-        As principais regras incluem: impedimento (quando um atacante está mais perto do gol que o penúltimo defensor no momento do passe), proibição de usar as mãos (exceto pelo goleiro dentro da área), e punições como faltas, cartões amarelos (advertência) e vermelhos (expulsão). Quando a bola sai pela lateral, o jogo é reiniciado com arremesso; pela linha de fundo, por tiro de meta (se saiu do atacante) ou escanteio (se saiu do defensor). Tiros livres e pênaltis são cobrados após faltas.
-    </p>
-</div>
 
-<div class="card">
-    <h2>💪 Benefícios do Voleibol</h2>
-    <p>
-        Praticar futebol traz diversos benefícios para o corpo e a mente. Fisicamente, melhora o condicionamento cardiovascular, fortalece músculos e ossos, ajuda no controle de peso e aumenta a resistência, flexibilidade e coordenação. A prática regular reduz o risco de doenças como diabetes, hipertensão e osteoporose. Mentalmente, o futebol reduz estresse, ansiedade e sintomas de depressão, graças à liberação de endorfinas. Também melhora o foco, a autoestima e a tomada de decisões. 
-        <br> <br>
-        Socialmente, o futebol desenvolve o trabalho em equipe, a comunicação e a inclusão, promovendo laços de amizade e senso de comunidade. É um esporte acessível, divertido e que pode ser praticado em qualquer idade, contribuindo para uma vida mais saudável e equilibrada. 
-    </p>
-</div>
+    <div class="card">
+        <h2>Regras Básicas</h2>
+        <p>
+            O futebol é jogado por duas equipes de 11 jogadores. O objetivo é marcar gols, fazendo a bola passar totalmente pela linha do gol adversário.
+            <br><br>
+            A partida tem dois tempos de 45 minutos. Também existem regras como impedimento, faltas, cartões, laterais, escanteios, tiros livres e pênaltis.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Benefícios do Futebol</h2>
+        <p>
+            Jogar futebol melhora o condicionamento físico, fortalece o corpo, trabalha coordenação, resistência e tomada de decisão.
+            <br><br>
+            Além disso, ajuda no trabalho em equipe, na comunicação, na disciplina e na criação de amizades.
+        </p>
+    </div>
 </section>
+
 <section class="cta">
     <h2>Quer entrar em campo?</h2>
-    <p>Crie sua conta e faça parte desse mundo!</p>
+    <p>Crie sua conta e faça parte desse mundo.</p>
 
     <div class="cta-buttons">
         <a href="cadastro.html" class="btn">Criar Conta</a>
         <a href="dashboard.html" class="btn-outline">Ver Dashboard</a>
     </div>
 </section>
+
 <footer>
     <div class="footer-container">
-        <p>📞 Contato: (11) 93900-9825</p>
-        <p>✉️ Email: avp.augustovpassos@gmail.com</p>
-        <p>© 2026 Le' Fut Goat</p>
+        <p>Contato: (11) 93900-9825</p>
+        <p>Email: avp.augustovpassos@gmail.com</p>
+        <p>2026 Le' Fut Goat</p>
     </div>
 </footer>
-
+</body>
 </html>
-
-<script>
-    // Função que verifica se o usuário está logado
-    function verificarLogin() {
-
-        // Pega o ID salvo na sessão
-        var idUsuario = sessionStorage.ID_USUARIO;
-
-        // Pega o nav
-        var nav = document.getElementById("navLinks");
-
-        // Se estiver logado
-        if (idUsuario != null) {
-
-            // Mostra botão de sair
-            nav.innerHTML += `
-                <a href="#" onclick="sair()">Sair</a>
-            `;
-
-        } else {
-
-            // Se NÃO estiver logado, mostra login e cadastro
-            nav.innerHTML += `
-                <a href="login.html">Login</a>
-                <a href="cadastro.html">Cadastro</a>
-            `;
-        }
-    }
-
-    // Função de logout
-    function sair() {
-
-        // Limpa a sessão
-        sessionStorage.clear();
-
-        // Redireciona pra home
-        window.location = "index.html";
-    }
-
-    // Executa quando a página carregar
-    verificarLogin();
-</script>
-
