@@ -16,22 +16,24 @@
 }
 
 .video-bg {
-    position: absolute; z-index: -99;
+    position: fixed; 
     top: 50%;
     left: 50%;
     min-width: 100%;
     min-height: 100%;
     transform: translate(-50%, -50%);
     object-fit: cover;
+    z-index: -99;
 }
 
 .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    z-index: -98;
 }
 
 .hero-content {
@@ -91,11 +93,8 @@ body{
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-
     width: 300px;
     min-height: 350px;
-
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: 0.3s;
 }
 
@@ -175,7 +174,7 @@ footer {
 <header>
     <h1>Le' Fut Goat</h1>
     <nav id="navLinks">
-        <a href="minhaHistória.html">Minha<br>História<br>no Futebol</a>
+        <a href="historia.html">Minha<br>História<br>no Futebol</a>
         <a href="index.html">Home</a>
         <a href="dashboard.html">Dashboard</a>
     </nav>
@@ -185,11 +184,9 @@ footer {
     <video autoplay muted loop class="video-bg">
         <source src="assets/Videobg.mp4" type="video/mp4">
     </video>
-
     <div class="overlay"></div>
-
     <div class="hero-content">
-        <h3>Mais que um esporte, mais que uma paixão</h3>
+        <h2>Mais que um esporte, mais que uma paixão</h2>
         <p>Futebol é vida.</p>
     </div>
 </section>
