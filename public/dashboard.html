@@ -41,12 +41,22 @@
         .verde { background-color: green; }
         .amarelo { background-color: goldenrod; }
         .vermelho { background-color: red; }
+        .neutra { background-color: #111111; }
 
         input {
             padding: 8px;
             margin: 5px;
             border-radius: 5px;
             border: none;
+        }
+
+        .mensagem {
+            display: none;
+            background: #111111;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
         }
 
         button {
@@ -85,6 +95,21 @@
             display: block;
         }
 
+        .resumo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        .resumo-item,
+        .carta-item {
+            background: #f2f2f2;
+            border-left: 5px solid #EB0D3F;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
         footer {
             background-color: #EB0D3F;
             color: white;
@@ -119,6 +144,11 @@
 
         <div style="display: flex; flex-wrap: wrap; gap: 10px;">
             <div>
+                <label>Nome da carta</label><br>
+                <input id="nomeCarta" type="text" placeholder="Minha carta">
+            </div>
+
+            <div>
                 <label>Ritmo</label><br>
                 <input id="ritmo" type="number" min="0" max="100">
             </div>
@@ -150,10 +180,20 @@
         </div>
 
         <br>
-        <button onclick="gerarDashboard()">Gerar análise</button>
+        <button onclick="gerarDashboard()">Gerar analise</button>
+        <div class="mensagem" id="cardErro">
+            <span id="mensagem_erro"></span>
+        </div>
     </div>
 
     <div class="kpis" id="kpis"></div>
+
+    <div class="barra-container">
+        <h2>Resumo salvo</h2>
+        <div class="resumo-grid" id="resumoDashboard">
+            <div class="resumo-item">Entre na conta e gere uma carta para salvar seus dados.</div>
+        </div>
+    </div>
 
     <div class="barra-container" id="barras">
         <h2>Desempenho por Atributo</h2>
@@ -162,6 +202,18 @@
     <div class="barra-container">
         <h2>Radar do Jogador</h2>
         <canvas id="graficoRadar"></canvas>
+    </div>
+
+    <div class="barra-container">
+        <h2>Ultimas cartas salvas</h2>
+        <div id="listaCartas">
+            <div class="carta-item">Nenhuma carta carregada.</div>
+        </div>
+    </div>
+
+    <div class="barra-container">
+        <h2>Historico de overall</h2>
+        <canvas id="graficoHistorico"></canvas>
     </div>
 </div>
 

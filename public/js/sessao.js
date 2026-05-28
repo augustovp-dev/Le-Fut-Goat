@@ -69,7 +69,7 @@ function atualizarMenu() {
     }
 
     var links = `
-        <a href="minhaHistória.html">Minha<br>História<br>no Futebol</a>
+        <a href="historia.html">Minha<br>Historia<br>no Futebol</a>
         <a href="index.html">Home</a>
         <a href="dashboard.html">Dashboard</a>
     `;
