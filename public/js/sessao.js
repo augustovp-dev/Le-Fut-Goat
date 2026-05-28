@@ -1,40 +1,39 @@
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
-    var b_usuario = document.getElementById("b_usuario");
+    var idUsuario = sessionStorage.ID_USUARIO;
 
-    if (email != null && nome != null) {
-        if (b_usuario != null) {
-            b_usuario.innerHTML = nome;
-        }
+    if (!email || !nome || !idUsuario) {
+        window.location = "/login.html";
         return;
     }
 
-    window.location = "login.html";
+    var b_usuario = document.getElementById("b_usuario");
+    if (b_usuario) {
+        b_usuario.innerHTML = nome;
+    }
 }
 
 function limparSessao() {
     sessionStorage.clear();
-    window.location = "login.html";
+    window.location = "/login.html";
 }
 
 function sair() {
     sessionStorage.clear();
-    window.location = "index.html";
+    window.location = "/index.html";
 }
 
 function aguardar() {
     var divAguardar = document.getElementById("div_aguardar");
-
-    if (divAguardar != null) {
+    if (divAguardar) {
         divAguardar.style.display = "flex";
     }
 }
 
 function finalizarAguardar(texto) {
     var divAguardar = document.getElementById("div_aguardar");
-
-    if (divAguardar != null) {
+    if (divAguardar) {
         divAguardar.style.display = "none";
     }
 
@@ -47,7 +46,7 @@ function mostrarMensagem(texto) {
     var cardErro = document.getElementById("cardErro");
     var mensagemErro = document.getElementById("mensagem_erro");
 
-    if (cardErro != null && mensagemErro != null) {
+    if (cardErro && mensagemErro) {
         cardErro.style.display = "block";
         mensagemErro.innerHTML = texto;
     }
@@ -55,31 +54,28 @@ function mostrarMensagem(texto) {
 
 function sumirMensagem() {
     var cardErro = document.getElementById("cardErro");
-
-    if (cardErro != null) {
+    if (cardErro) {
         cardErro.style.display = "none";
     }
 }
 
 function atualizarMenu() {
     var nav = document.getElementById("navLinks");
+    if (!nav) return;
 
-    if (nav == null) {
-        return;
-    }
-
+    var usuarioAutenticado = sessionStorage.ID_USUARIO != null;
     var links = `
-        <a href="historia.html">Minha<br>Historia<br>no Futebol</a>
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
+        <a href="/index.html">Home</a>
+        <a href="/historia.html">Minha Historia</a>
+        <a href="/dashboard.html">Dashboard</a>
     `;
 
-    if (sessionStorage.ID_USUARIO != null) {
+    if (usuarioAutenticado) {
         links += `<a href="#" onclick="sair()">Sair</a>`;
     } else {
         links += `
-            <a href="login.html">Login</a>
-            <a href="cadastro.html">Cadastro</a>
+            <a href="/login.html">Login</a>
+            <a href="/cadastro.html">Cadastro</a>
         `;
     }
 

@@ -16,14 +16,15 @@ function autenticar(req, res) {
                 return;
             }
 
+            var usuario = resultado[0];
             res.json({
-                id_usuario: resultado[0].id_usuario,
-                nome: resultado[0].nome,
-                email: resultado[0].email
+                id: usuario.id_usuario,
+                nome: usuario.nome,
+                email: usuario.email
             });
         })
         .catch(function (erro) {
-            console.log(erro);
+            console.log("❌ Erro ao autenticar:", erro);
             res.status(500).send("Erro ao realizar login.");
         });
 }
@@ -40,10 +41,13 @@ function cadastrar(req, res) {
 
     usuarioModel.cadastrar(nome, email, senha)
         .then(function (resultado) {
-            res.json(resultado);
+            res.status(201).json({
+                id: resultado.insertId,
+                mensagem: "Usuário cadastrado com sucesso."
+            });
         })
         .catch(function (erro) {
-            console.log(erro);
+            console.log("❌ Erro ao cadastrar:", erro);
 
             if (erro.code === "ER_DUP_ENTRY") {
                 res.status(409).send("Email já cadastrado.");

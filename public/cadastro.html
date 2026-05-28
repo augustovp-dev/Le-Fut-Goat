@@ -1,248 +1,314 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cadastro</title>
-<link rel="icon" href="./assets/favicon2.jpg">
-<script src="./js/sessao.js" defer></script>
-<link rel="stylesheet" href="cssHeader.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Le' Fut Goat</title>
+    <link rel="icon" href="./assets/favicon2.jpg">
+    <script src="./js/sessao.js" defer></script>
+    <link rel="stylesheet" href="cssHeader.css">
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #000000, #000000);
-    padding-top: 70px;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #000000, #000000);
+        }
 
-.login-container {
-    display: flex;
-    height: calc(100vh - 70px);
-}
+        .login-container {
+            display: flex;
+            height: calc(100vh - 70px);
+        }
 
-.login-left {
-    flex: 1;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 60px;
-}
+        .login-left {
+            flex: 1;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+        }
 
-.login-left h2 {
-    font-size: 2.5em;
-}
+        .login-left h2 {
+            font-size: 2.5em;
+        }
 
-.login-right {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .login-left p {
+            font-size: 1.2em;
+        }
 
-.card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 350px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
+        .login-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.campo {
-    margin-bottom: 15px;
-}
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
 
-.campo input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+        .campo {
+            margin-bottom: 15px;
+        }
 
-.campo input:focus {
-    outline: none;
-    border-color: #355391;
-    box-shadow: 0 0 5px rgba(53,83,145,0.5);
-}
+        .campo input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
 
-.botao {
-    width: 100%;
-    padding: 12px;
-    background-color: #EB0D3F;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        .campo input:focus {
+            outline: none;
+            border-color: #EB0D3F;
+            box-shadow: 0 0 5px rgba(235, 13, 63, 0.5);
+        }
 
-.botao:hover {
-    background-color: #000000;
-}
+        .botao {
+            width: 100%;
+            padding: 12px;
+            background-color: #EB0D3F;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.card_erro {
-    display: none;
-    background-color: green;
-    color: white;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    text-align: center;
-}
-footer {
-    background-color: #EB0D3F;
-    color: white;
-    margin-top: 40px;
-}
+        .botao:hover {
+            background-color: #000000;
+            transition: 0.3s;
+        }
 
-.footer-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 15px;
-    flex-wrap: wrap;
-    text-align: center;
-}
+        .card_erro {
+            display: none;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
 
-.footer-container p {
-    margin: 0;
-}
-</style>
+        .card_sucesso {
+            display: none;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        #div_aguardar {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            margin-top: 15px;
+        }
+
+        .spinner {
+            border: 4px solid rgba(235, 13, 63, 0.2);
+            border-top: 4px solid #EB0D3F;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        footer {
+            background-color: #EB0D3F;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .footer-container p {
+            margin: 0;
+        }
+
+        a {
+            color: #EB0D3F;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-<header>
-    <h1>Le' Fut Goat</h1>
-    <nav id="navLinks">
-        <a href="historia.html">Minha<br>História<br>no Futebol</a>
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-    </nav>
-</header>
+    <header>
+        <h1>Le' Fut Goat</h1>
+        <nav id="navLinks">
+            <a href="historia.html">Minha Historia</a>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+    </header>
 
-<div class="login-container">
-    <div class="login-left">
-        <h2>Crie sua conta</h2>
-        <p>Comece agora sua jornada no futebol.</p>
-    </div>
+    <div class="login-container">
+        <div class="login-left">
+            <h2>Crie sua conta</h2>
+            <p>Comece agora sua jornada no futebol.</p>
+        </div>
 
-    <div class="login-right">
-        <div class="card">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
+        <div class="login-right">
+            <div class="card">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
 
-            <h2>Bem-vindo!</h2>
+                <div class="card_sucesso" id="cardSucesso">
+                    <span id="mensagem_sucesso"></span>
+                </div>
 
-            <div class="formulario">
+                <h2>Cadastro</h2>
+
                 <div class="campo">
-                    <span>Nome:</span>
-                    <input id="nome_input" type="text" placeholder="Seu nome">
+                    <input id="nome_input" type="text" placeholder="Nome completo">
                 </div>
 
                 <div class="campo">
-                    <span>Email:</span>
-                    <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+                    <input id="email_input" type="email" placeholder="seu@email.com">
                 </div>
 
                 <div class="campo">
-                    <span>Senha:</span>
-                    <input id="senha_input" type="password" placeholder="***********">
+                    <input id="senha_input" type="password" placeholder="Senha">
                 </div>
 
                 <div class="campo">
-                    <span>Confirmar senha:</span>
-                    <input id="confirmacao_senha_input" type="password" placeholder="***********">
+                    <input id="confirmacao_senha_input" type="password" placeholder="Confirmar senha">
                 </div>
 
                 <button class="botao" onclick="cadastrar()" id="btnCadastro" type="button">Cadastrar</button>
-                <div id="div_aguardar" class="loading-div"></div>
+
+                <div id="div_aguardar">
+                    <div class="spinner"></div>
+                </div>
+
+                <p style="text-align:center; margin-top:10px;">
+                    Já tem conta? <a href="login.html">Faça login</a>
+                </p>
             </div>
         </div>
     </div>
-</div>
 
-<footer>
-    <div class="footer-container">
-        <p>Contato: (11) 93900-9825</p>
-        <p>Email: avp.augustovpassos@gmail.com</p>
-        <p>2026 Le' Fut Goat</p>
-    </div>
-</footer>
+    <footer>
+        <div class="footer-container">
+            <p>Contato: (11) 93900-9825</p>
+            <p>Email: avp.augustovpassos@gmail.com</p>
+            <p>2026 Le' Fut Goat</p>
+        </div>
+    </footer>
 
-<script>
-function validarEmail(email) {
-    var arroba = email.indexOf("@");
-    var ponto = email.lastIndexOf(".");
-
-    return arroba > 0 && ponto > arroba + 1 && ponto < email.length - 1;
-}
-
-function cadastrar() {
-    var nomeVar = document.getElementById("nome_input").value.trim();
-    var emailVar = document.getElementById("email_input").value.trim();
-    var senhaVar = document.getElementById("senha_input").value;
-    var confirmacaoSenhaVar = document.getElementById("confirmacao_senha_input").value;
-
-    if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-        mostrarMensagem("Preencha todos os campos.");
-        return false;
-    }
-
-    if (nomeVar.length < 2) {
-        mostrarMensagem("Informe um nome válido.");
-        return false;
-    }
-
-    if (!validarEmail(emailVar)) {
-        mostrarMensagem("Informe um email válido.");
-        return false;
-    }
-
-    if (senhaVar.length < 6) {
-        mostrarMensagem("A senha precisa ter pelo menos 6 caracteres.");
-        return false;
-    }
-
-    if (senhaVar != confirmacaoSenhaVar) {
-        mostrarMensagem("As senhas não conferem.");
-        return false;
-    }
-
-    aguardar();
-
-    fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            nomeServer: nomeVar,
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    })
-    .then(function (resposta) {
-        finalizarAguardar();
-
-        if (resposta.ok) {
-            mostrarMensagem("Cadastro realizado.");
-            setTimeout(function () {
-                window.location = "login.html";
-            }, 1200);
-            return;
+    <script>
+        function validarEmail(email) {
+            var arroba = email.indexOf("@");
+            var ponto = email.lastIndexOf(".");
+            return arroba > 0 && ponto > arroba + 1 && ponto < email.length - 1;
         }
 
-        resposta.text().then(function (texto) {
-            mostrarMensagem(texto);
-        });
-    })
-    .catch(function () {
-        finalizarAguardar("Não foi possível cadastrar agora.");
-    });
+        function cadastrar() {
+            var nomeVar = document.getElementById("nome_input").value.trim();
+            var emailVar = document.getElementById("email_input").value.trim();
+            var senhaVar = document.getElementById("senha_input").value;
+            var confirmacaoSenhaVar = document.getElementById("confirmacao_senha_input").value;
 
-    return false;
-}
-</script>
+            if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+                mostrarErro("Preencha todos os campos.");
+                return false;
+            }
+
+            if (nomeVar.length < 2) {
+                mostrarErro("Informe um nome válido.");
+                return false;
+            }
+
+            if (!validarEmail(emailVar)) {
+                mostrarErro("Informe um email válido.");
+                return false;
+            }
+
+            if (senhaVar.length < 6) {
+                mostrarErro("A senha precisa ter pelo menos 6 caracteres.");
+                return false;
+            }
+
+            if (senhaVar != confirmacaoSenhaVar) {
+                mostrarErro("As senhas não conferem.");
+                return false;
+            }
+
+            aguardar();
+
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            })
+            .then(function (resposta) {
+                finalizarAguardar();
+
+                if (resposta.ok) {
+                    mostrarSucesso("Cadastro realizado com sucesso!");
+                    setTimeout(function () {
+                        window.location = "login.html";
+                    }, 1500);
+                    return;
+                }
+
+                resposta.text().then(function (texto) {
+                    mostrarErro(texto);
+                });
+            })
+            .catch(function () {
+                finalizarAguardar("Não foi possível cadastrar agora.");
+            });
+
+            return false;
+        }
+
+        function mostrarErro(texto) {
+            var cardErro = document.getElementById("cardErro");
+            var mensagem = document.getElementById("mensagem_erro");
+            cardErro.style.display = "block";
+            mensagem.innerHTML = texto;
+        }
+
+        function mostrarSucesso(texto) {
+            var cardSucesso = document.getElementById("cardSucesso");
+            var mensagem = document.getElementById("mensagem_sucesso");
+            cardSucesso.style.display = "block";
+            mensagem.innerHTML = texto;
+        }
+    </script>
 </body>
 </html>

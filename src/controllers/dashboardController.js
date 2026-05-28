@@ -94,7 +94,7 @@ function salvarCarta(req, res) {
                 });
         })
         .catch(function (erro) {
-            console.log(erro);
+            console.log("❌ Erro ao salvar carta:", erro);
             res.status(500).send("Erro ao salvar carta.");
         });
 }
@@ -112,7 +112,7 @@ function listarCartas(req, res) {
             res.json(resultado);
         })
         .catch(function (erro) {
-            console.log(erro);
+            console.log("❌ Erro ao listar cartas:", erro);
             res.status(500).send("Erro ao listar cartas.");
         });
 }
@@ -143,7 +143,7 @@ function buscarResumo(req, res) {
             });
         })
         .catch(function (erro) {
-            console.log(erro);
+            console.log("❌ Erro ao buscar resumo:", erro);
             res.status(500).send("Erro ao buscar resumo.");
         });
 }
@@ -161,7 +161,7 @@ function listarHistorico(req, res) {
             res.json(resultado);
         })
         .catch(function (erro) {
-            console.log(erro);
+            console.log("❌ Erro ao listar historico:", erro);
             res.status(500).send("Erro ao listar historico.");
         });
 }

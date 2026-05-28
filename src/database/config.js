@@ -18,18 +18,23 @@ function executar(instrucao, parametros) {
 
         conexao.connect(function (erro) {
             if (erro) {
+                console.log("❌ Erro ao conectar no banco:", erro.message);
                 reject(erro);
                 return;
             }
+
+            console.log("✅ Conectado ao banco de dados");
 
             conexao.query(instrucao, parametros || [], function (erroQuery, resultados) {
                 conexao.end();
 
                 if (erroQuery) {
+                    console.log("❌ Erro na query:", erroQuery.message);
                     reject(erroQuery);
                     return;
                 }
 
+                console.log("✅ Query executada com sucesso");
                 resolve(resultados);
             });
         });
